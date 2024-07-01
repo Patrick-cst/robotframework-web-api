@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.7 on win32)" generated="20240623 18:03:11.273" rpa="false" schemaversion="3">
+<suite id="s1" name="Api Tesging Usuario" source="c:\Users\pac-c\Desktop\Cursos\Robotframework-basico\ApiTesting\tests\api_tesging_usuario.robot">
+<test id="s1-t1" name="Cenario 05: Consultar produtos" line="35">
+<kw name="Consultar produtos" library="api_testing_ususario">
+<kw name="Criar Sessao na serverest" library="api_testing_ususario">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${headers}</var>
+<arg>accept=application/json</arg>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20240623 18:03:11.463" level="INFO">${headers} = {'accept': 'application/json', 'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20240623 18:03:11.463" endtime="20240623 18:03:11.467"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>alias=ServeRest</arg>
+<arg>url=https://serverest.dev</arg>
+<arg>headers=${headers}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20240623 18:03:11.468" level="INFO">Creating Session using : alias=ServeRest, url=https://serverest.dev, headers={'accept': 'application/json', 'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20240623 18:03:11.467" endtime="20240623 18:03:11.469"/>
+</kw>
+<status status="PASS" starttime="20240623 18:03:11.463" endtime="20240623 18:03:11.469"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${RESPONSE}</var>
+<arg>alias=serverest</arg>
+<arg>url=/produtos</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20240623 18:03:11.958" level="INFO">GET Request : url=https://serverest.dev/produtos 
+ path_url=/produtos 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+ body=None 
+ </msg>
+<msg timestamp="20240623 18:03:11.959" level="INFO">GET Response : url=https://serverest.dev/produtos 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '4e1458babd159f270164026a54571a54;o=1', 'Date': 'Sun, 23 Jun 2024 21:03:13 GMT', 'Server': 'Google Frontend', 'Content-Length': '1460'} 
+ body={
+    "quantidade": 7,
+    "produtos": [
+        {
+            "nome": "Smartphone",
+            "preco": 2000,
+            "descricao": "This is the latest version of this phone",
+            "quantidade": 10,
+            "_id": "1aJe7COlVpOovFqy"
+        },
+        {
+            "nome": "smartphone",
+            "preco": 10,
+            "descricao": "this is a phone",
+            "quantidade": 10,
+            "_id": "5AmPXitfViUPIiVF"
+        },
+        {
+            "nome": "Logitech MX Vertical",
+            "preco": 470,
+            "descricao": "Mouse",
+            "quantidade": 382,
+            "_id": "BeeJh5lz3k6kSIzA"
+        },
+        {
+            "nome": "Incredible Cotton Chicken",
+            "preco": 133,
+            "descricao": "animi quasi velit",
+            "quantidade": 4,
+            "_id": "CzN8e2cKbNAaHcKn"
+        },
+        {
+            "nome": "Ergonomic Steel Chips",
+            "preco": 133,
+            "descricao": "eum ut est",
+            "quantidade": 8,
+            "_id": "Hd5uOfHZVmxbIf5v"
+        },
+        {
+            "nome": "Samsung 60 polegadas",
+            "preco": 5240,
+            "descricao": "TV",
+            "quantidade": 49977,
+            "_id": "K6leHdftCeOJj8BJ"
+        },
+        {
+            "nome": "Tasty Concrete Shoes",
+            "preco": 133,
+            "descricao": "facilis rerum sint",
+            "quantidade": 839,
+            "_id": "dMr973UdA9gWs8Pc"
+        }
+    ]
+} 
+ </msg>
+<msg timestamp="20240623 18:03:11.959" level="INFO">D:\Users\pac-c\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py:1061: InsecureRequestWarning: Unverified HTTPS request is being made to host 'serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20240623 18:03:11.960" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20240623 18:03:11.469" endtime="20240623 18:03:11.960"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${RESPONSE.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240623 18:03:11.962" level="INFO">{'quantidade': 7, 'produtos': [{'nome': 'Smartphone', 'preco': 2000, 'descricao': 'This is the latest version of this phone', 'quantidade': 10, '_id': '1aJe7COlVpOovFqy'}, {'nome': 'smartphone', 'preco': 10, 'descricao': 'this is a phone', 'quantidade': 10, '_id': '5AmPXitfViUPIiVF'}, {'nome': 'Logitech MX Vertical', 'preco': 470, 'descricao': 'Mouse', 'quantidade': 382, '_id': 'BeeJh5lz3k6kSIzA'}, {'nome': 'Incredible Cotton Chicken', 'preco': 133, 'descricao': 'animi quasi velit', 'quantidade': 4, '_id': 'CzN8e2cKbNAaHcKn'}, {'nome': 'Ergonomic Steel Chips', 'preco': 133, 'descricao': 'eum ut est', 'quantidade': 8, '_id': 'Hd5uOfHZVmxbIf5v'}, {'nome': 'Samsung 60 polegadas', 'preco': 5240, 'descricao': 'TV', 'quantidade': 49977, '_id': 'K6leHdftCeOJj8BJ'}, {'nome': 'Tasty Concrete Shoes', 'preco': 133, 'descricao': 'facilis rerum sint', 'quantidade': 839, '_id': 'dMr973UdA9gWs8Pc'}]}</msg>
+<status status="PASS" starttime="20240623 18:03:11.960" endtime="20240623 18:03:11.962"/>
+</kw>
+<status status="PASS" starttime="20240623 18:03:11.462" endtime="20240623 18:03:11.962"/>
+</kw>
+<status status="PASS" starttime="20240623 18:03:11.461" endtime="20240623 18:03:11.963"/>
+</test>
+<status status="PASS" starttime="20240623 18:03:11.281" endtime="20240623 18:03:11.965"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Api Tesging Usuario">Api Tesging Usuario</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

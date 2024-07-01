@@ -1,0 +1,15 @@
+robot -t "Caso de teste 02 - Pesquisa de um produto" amazon_testes.robot
+
+Executa por tags
+robot -i menus amazon_testes.robot
+
+Não executar testes da tag menus
+robot -e menus amazon_testes.robot
+
+Executar os testes e armazenar os logs em uma pasta
+robot -d resultados amazon_testes.robot
+
+-v Muda o valor da variavel apenas uma vez, sendo que a variavel BROWSER tem como vlaor chrome
+robot -v BROWSER:firefox amazon_testes.robot
+
+robot -v BROWSER:firefox -i menus -d resultado amazon_testes.robot

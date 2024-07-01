@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.7 on win32)" generated="20240623 12:37:59.336" rpa="false" schemaversion="3">
+<suite id="s1" name="Shopping Testes" source="c:\Users\pac-c\Desktop\Cursos\Robotframework-basico\WebTesting\shopping\shopping_testes.robot">
+<test id="s1-t1" name="Caso de Teste 01 - Acesso ao menu &quot;Eletrônicos&quot;" line="9">
+<kw name="Entrar no site do shopping" library="shopping_resources">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>browser=chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20240623 12:37:59.542" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20240623 12:37:59.541" endtime="20240623 12:38:01.944"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20240623 12:38:01.944" endtime="20240623 12:38:01.975"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>url=${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20240623 12:38:01.975" level="INFO">Opening url 'https://www.saucedemo.com/inventory.html'</msg>
+<status status="PASS" starttime="20240623 12:38:01.975" endtime="20240623 12:38:02.349"/>
+</kw>
+<status status="PASS" starttime="20240623 12:37:59.540" endtime="20240623 12:38:02.350"/>
+</kw>
+<kw name="Realizar login" library="shopping_resources">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>locator=${CMP_USERNAME}</arg>
+<arg>text=standard_user</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240623 12:38:02.352" level="INFO">Typing text 'standard_user' into text field 'user-name'.</msg>
+<status status="PASS" starttime="20240623 12:38:02.351" endtime="20240623 12:38:02.515"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>locator=${CMP_PASSWORD}</arg>
+<arg>text=secret_sauce</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240623 12:38:02.516" level="INFO">Typing text 'secret_sauce' into text field 'password'.</msg>
+<status status="PASS" starttime="20240623 12:38:02.516" endtime="20240623 12:38:02.593"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=${BTN_LOGIN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240623 12:38:02.594" level="INFO">Clicking element 'login-button'.</msg>
+<status status="PASS" starttime="20240623 12:38:02.594" endtime="20240623 12:38:02.673"/>
+</kw>
+<status status="PASS" starttime="20240623 12:38:02.350" endtime="20240623 12:38:02.674"/>
+</kw>
+<kw name="adicionar no carrinho todos os produtos Sauce" library="shopping_resources">
+<kw name="Set Variable" library="BuiltIn">
+<var>${CONTADOR}</var>
+<arg>1</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240623 12:38:02.678" level="INFO">${CONTADOR} = 1</msg>
+<status status="PASS" starttime="20240623 12:38:02.677" endtime="20240623 12:38:02.678"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${NOME_PRODUTO}</var>
+<arg>locator=//div[@data-test='inventory-item'][${CONTADOR}]//div[@data-test='inventory-item-name']</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20240623 12:38:02.708" level="INFO">${NOME_PRODUTO} = Sauce Labs Backpack</msg>
+<status status="PASS" starttime="20240623 12:38:02.678" endtime="20240623 12:38:02.708"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${NOME_PRODUTO}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240623 12:38:02.709" level="INFO">Sauce Labs Backpack</msg>
+<status status="PASS" starttime="20240623 12:38:02.709" endtime="20240623 12:38:02.710"/>
+</kw>
+<while condition="'${NOME_PRODUTO}' Contains 'Sauce'">
+<msg timestamp="20240623 12:38:02.710" level="FAIL">Evaluating WHILE loop condition failed: Evaluating expression ''Sauce Labs Backpack' Contains 'Sauce'' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</msg>
+<status status="FAIL" starttime="20240623 12:38:02.710" endtime="20240623 12:38:02.713"/>
+</while>
+<status status="FAIL" starttime="20240623 12:38:02.676" endtime="20240623 12:38:02.714"/>
+</kw>
+<doc>Esse teste verifica o menu de eletronicos da americanas</doc>
+<tag>menus</tag>
+<status status="FAIL" starttime="20240623 12:37:59.539" endtime="20240623 12:38:02.716">Evaluating WHILE loop condition failed: Evaluating expression ''Sauce Labs Backpack' Contains 'Sauce'' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</status>
+</test>
+<doc>Esse suite testa o site da amazon</doc>
+<status status="FAIL" starttime="20240623 12:37:59.342" endtime="20240623 12:38:02.719"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">menus</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Shopping Testes">Shopping Testes</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.7 on win32)" generated="20240621 22:39:10.437" rpa="false" schemaversion="3">
+<suite id="s1" name="ExemplosArgumentos" source="c:\Users\pac-c\Desktop\Cursos\Robotframework-basico\VariaveisEscoposArgumentos\ExemplosArgumentos.robot">
+<test id="s1-t1" name="Listar dados da pessoa" line="15">
+<kw name="Criar um dicionario">
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>&amp;{PESSOA}</arg>
+<arg>nome=Patrick</arg>
+<arg>idade=28</arg>
+<arg>genero=masculino</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20240621 22:39:10.477" level="INFO">&amp;{PESSOA} = { nome=Patrick | idade=28 | genero=masculino }</msg>
+<status status="PASS" starttime="20240621 22:39:10.476" endtime="20240621 22:39:10.480"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>nome:${PESSOA.nome}, idade:${PESSOA.idade}, genero:${PESSOA.genero}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240621 22:39:10.482" level="INFO">nome:Patrick, idade:28, genero:masculino</msg>
+<status status="PASS" starttime="20240621 22:39:10.480" endtime="20240621 22:39:10.482"/>
+</kw>
+<if>
+<branch type="IF" condition="'${PESSOA.nome}' == 'Patrick'">
+<kw name="Log" library="BuiltIn">
+<arg>deu bom</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240621 22:39:10.483" level="INFO">deu bom</msg>
+<status status="PASS" starttime="20240621 22:39:10.483" endtime="20240621 22:39:10.483"/>
+</kw>
+<status status="PASS" starttime="20240621 22:39:10.483" endtime="20240621 22:39:10.484"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" library="BuiltIn">
+<arg>Deu ruim</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20240621 22:39:10.484" endtime="20240621 22:39:10.484"/>
+</kw>
+<status status="NOT RUN" starttime="20240621 22:39:10.484" endtime="20240621 22:39:10.484"/>
+</branch>
+<status status="PASS" starttime="20240621 22:39:10.482" endtime="20240621 22:39:10.484"/>
+</if>
+<status status="PASS" starttime="20240621 22:39:10.475" endtime="20240621 22:39:10.484"/>
+</kw>
+<status status="PASS" starttime="20240621 22:39:10.474" endtime="20240621 22:39:10.485"/>
+</test>
+<doc>Exemplo de uso de variáveis como argumentos em Keywords</doc>
+<status status="PASS" starttime="20240621 22:39:10.445" endtime="20240621 22:39:10.487"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="ExemplosArgumentos">ExemplosArgumentos</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
